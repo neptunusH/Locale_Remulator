@@ -463,7 +463,7 @@ BOOL WINAPI HookCreateProcessW(
 )
 {
 	//MessageBoxW(NULL, lpCommandLine, TEXT("HookCreateProcessW"), NULL);
-	if (lpCommandLine && wcsstr(lpCommandLine, L"BlackXchg.aes") != NULL)
+	if (lpCommandLine && (wcsstr(lpCommandLine, L"BlackXchg.aes") != NULL || wcsstr(lpCommandLine, L"BlackCipher.aes") != NULL))
 	{
 		return OriginalCreateProcessW(
 			lpApplicationName,
